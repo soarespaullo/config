@@ -1,2 +1,2 @@
-# config
+# Meu Setup
 Minhas configurações
