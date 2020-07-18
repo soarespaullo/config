@@ -15,7 +15,8 @@ Shell | [ZSH](https://wiki.archlinux.org/index.php/Zsh)
 Screen Recorder | [Simple Screen Recorder](https://www.maartenbaert.be/simplescreenrecorder/)
 Print Screen    | [Flameshot](https://github.com/lupoDharkael/flameshot)
 Vídeo Player    | [VLC](https://www.videolan.org/vlc/index.pt-BR.html)
-
+Editor de Vídeo | [Kdenlive](https://kdenlive.org/en/)
+Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
 
 # Menu
 
