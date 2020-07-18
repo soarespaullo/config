@@ -7,4 +7,4 @@ Navegador       | [Google Chrome](https://www.google.com/intl/pt-BR/chrome/)
 
 
 
-![GitHub Logo](/imagens/wallpaper-01.jpg)
+![wallpaper](/imagens/wallpaper-01.jpg)
