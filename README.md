@@ -7,5 +7,9 @@ Navegador       | [Google Chrome](https://www.google.com/intl/pt-BR/chrome/)
 Desktop environment | [KDE Plasma](https://wiki.archlinux.org/index.php/KDE_(Português)) 
 
 
-# Print Screen
+# Menu
 ![screenshot](/imagens/screenshot-01.png)
+
+# Zsh
+
+![screenshot](/imagens/screenshot-02.png)
