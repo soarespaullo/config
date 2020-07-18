@@ -1,6 +1,9 @@
-![Meu Telegram](https://img.shields.io/badge/Meu-Telegram-red)
+[![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](https://t.me/k4k4rot0)
 ![GitHub repo size](https://img.shields.io/github/repo-size/k4k4rot0/config?label=Tamanho)
 ![GitHub contributors](https://img.shields.io/github/contributors/k4k4rot0/config?label=contribuidores)
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
+
 
 # Meu Setup:
 
