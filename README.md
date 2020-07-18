@@ -1,4 +1,4 @@
-# Meu Setup
+# Meu Setup:
 
 **Tipo**        | **Software**
 --------------- | ---------------
