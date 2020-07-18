@@ -7,5 +7,5 @@ Navegador       | [Google Chrome](https://www.google.com/intl/pt-BR/chrome/)
 Desktop environment | [KDE Plasma](https://wiki.archlinux.org/index.php/KDE_(Português)) 
 
 
-
-![wallpaper](/imagens/wallpaper-01.jpg)
+# Print Screen
+![screenshot](/imagens/screenshot-01.png)
