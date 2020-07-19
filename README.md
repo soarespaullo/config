@@ -25,4 +25,5 @@ Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
 # ZSH
 
 ![screenshot](/imagens/screenshot-02.png)
-
+ 
+ 
