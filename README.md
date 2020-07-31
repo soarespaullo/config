@@ -18,7 +18,7 @@ Vídeo Player    | [VLC](https://www.videolan.org/vlc/index.pt-BR.html) e [MPV](
 Editor de Vídeo | [Kdenlive](https://kdenlive.org/en/)
 Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
 Editor de Texto | [Nano](https://www.nano-editor.org/)
-Desenvolvimento | [Atom](https://atom.io/) e [Brackets](http://brackets.io/)
+Desenvolvimento | [Atom](https://atom.io/)
 
 # Desktop
 
