@@ -4,7 +4,7 @@
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 
-# Meu Setup:
+# _Minhas configurações_:
 
 **Tipo**        | **Software**
 --------------- | ---------------
@@ -17,6 +17,7 @@ Print Screen    | [Flameshot](https://github.com/lupoDharkael/flameshot)
 Vídeo Player    | [VLC](https://www.videolan.org/vlc/index.pt-BR.html) e [MPV](https://mpv.io/)
 Editor de Vídeo | [Kdenlive](https://kdenlive.org/en/)
 Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
+Editor de Texto | [Nano](https://www.nano-editor.org/)
 
 # Menu
 
