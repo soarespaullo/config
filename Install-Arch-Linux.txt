@@ -1,0 +1,331 @@
+# 
+#      **                    **            **       **                         
+#     ****                  /**           /**      //                          
+#    **//**   ******  ***** /**           /**       ** *******  **   ** **   **
+#   **  //** //**//* **///**/******       /**      /**//**///**/**  /**//** ** 
+#  ********** /** / /**  // /**///**      /**      /** /**  /**/**  /** //***  
+# /**//////** /**   /**   **/**  /**      /**      /** /**  /**/**  /**  **/** 
+# /**     /**/***   //***** /**  /**      /********/** ***  /**//****** ** //**
+# //      // ///     /////  //   //       //////// // ///   //  ////// //   // 
+#
+#
+
+Instalação Arch Linux - ( UEFI-BIOS )
+
+============================
+>> Criando Imagem de BOOT <<
+============================
+
+# dd bs=4M if='/lugar_onde_esta_seu_iso' of='/lugar_para_o_qual_copiar'
+status=progress && sync
+
+===============================================
+>> Verifique o modo de inicialização: (UEFI) <<
+===============================================
+
+# efivar -l
+
+======================================
+>> Conexão com a Internet e teclado <<
+======================================
+
+# loadkeys br-abnt2
+
+# dhcpcd ou wifi-menu
+
+# ping -c3 8.8.8.8 
+
+===============================================
+>> Mudando o idioma da instalação (OPCIONAL) <<
+===============================================
+
+# nano /etc/locale.gen
+
+CTRL + W escreva pt_BR p/ pesquisar e descomente a linha:
+
+#pt_BR.UTF-8
+
+Execute os comandos:
+
+# locale-gen
+
+# export LANG=pt_BR.UTF-8
+
+===================================
+>> Atualize o relógio do sistema <<
+===================================
+
+# timedatectl set-ntp true
+
+=====================================
+>> Particionamento de Disco (UEFI) <<
+=====================================
+
+# cfdisk /dev/sda 
+
+|=============================================|             
+      SSD - 223,6G     |      8GB - RAM        
+|=============================================|
+	/DEV/SDA |    SIZE  |  MOUNT POINT
+|---------------------------------------------|
+	 sda1    |    512M  |  /boot/efi
+|---------------------------------------------|
+	 sda2    |     50G  |  /
+|---------------------------------------------|
+	 sda3    |  173,1G  |  /home 
+|---------------------------------------------|
+	 sdb1    |  931,5G  |  /media/Backup
+|=============================================|
+
+========================
+>> Formatando o DISCO <<
+========================
+
+Formate a partição sda1 (/boot) (UEFI)
+
+# mkfs.fat -F32 -n BOOT /dev/sda1
+
+======================================
+>> Formatar a partição sda2 (/ROOT) <<
+======================================
+
+# mkfs.ext4 -L ROOT /dev/sda2
+
+============================
+>> Ativar a partição SWAP <<
+============================
+
+# mkswap -L SWAP /dev/sdaX
+
+# swapon /dev/sdaX
+
+======================================
+>> Formatar a partição sda3 (/HOME) <<
+======================================
+
+# mkfs.ext4 -L HOME /dev/sda3
+
+
+( Caso de algum erro instale o pacote # pacman -S dosfstools )
+
+==========================================
+>> Montagem das partições /ROOT e /HOME <<
+==========================================
+
+# mount /dev/sda2 /mnt
+
+# mkdir /mnt/home
+
+# mount /dev/sda3 /mnt/home
+
+============================================
+>> Agora monte a partição: (/boot) (UEFI) <<
+============================================
+
+# mkdir -p /mnt/boot/efi && mount /dev/sda1 /mnt/boot/efi
+
+=============================================
+>> Verifique as partições com este comando <<
+=============================================
+
+# lsblk /dev/sda
+
+==========================
+>> Espelho de Download << 
+==========================
+
+# pacman -S pacman-contrib
+
+Faça o backup do /etc/pacman.d/mirrorlist existente:
+
+# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+
+Opcionalmente, execute a seguinte linha sed para descomentar todos os espelhos:
+
+# sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
+
+Finalmente, classifique os espelhos, aqui com o operando -n 6 para emitir apenas os
+6 espelhos mais rápidos: ( Isso pode demorar um pouco )
+
+# rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+
+===============================
+>> Instalação e Donfiguração <<
+===============================
+
+# pacstrap -i /mnt base base-devel linux linux-firmware nano dhcpcd
+
+(OBS): Se quiser o (KERNEL-LTS), substitua o linux por linux-lts
+
+===============================================
+>> Gerar arquivo de Configuração de Montagem <<
+===============================================
+
+# genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# cat /mnt/etc/fstab
+
+===================================
+>> Mudando para o diretório ROOT <<
+===================================
+
+# arch-chroot /mnt
+
+=======================
+>> Configurar KEYMAP <<
+=======================
+
+# nano /etc/vconsole.conf
+
+KEYMAP=br-abnt2
+FONT=Lat2-Terminus16
+FONT_MAP=
+
+============================================
+>> Configurações de idioma e fuso horário <<
+============================================
+
+# nano /etc/locale.gen
+
+Descomentar linha:
+#pt_BR.UTF-8
+
+# locale-gen
+
+# echo LANG=pt_BR.UTF-8 > /etc/locale.conf
+
+# export LANG=pt_BR.UTF-8
+
+========================================
+>> Configurar fuso horário do sistema <<
+========================================
+
+# ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime
+
+=====================================
+>> Configurar o relógio do Sistema <<
+=====================================
+
+# hwclock -w -u
+
+==============================
+>> Configurar o repositório <<
+==============================
+
+# nano /etc/pacman.conf
+
+Descomentar linhas;
+
+# [multilib]
+# Include = /etc/pacman.d/mirrorlist
+
+# pacman -Sy
+
+=============================
+>> Defina seu nome de host <<
+=============================
+
+# echo Arch > /etc/hostname
+
+=====================
+>> Arquivo de host <<
+=====================
+
+# nano /etc/hosts
+
+127.0.0.1 localhost
+127.0.1.1 arch.localdomain arch
+
+=================
+>> Alterar DNS <<
+=================
+
+# nano /etc/resolv.conf
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+
+============================
+>> Configurando a Conexão <<
+============================
+
+# ip link ou ls /sys/class/net
+
+# systemctl enable dhcpcd ( rede cabeada )
+
+========================================
+>> Wifi ( Instalar componentes wifi ) <<
+========================================
+
+# pacman -S wpa_supplicant dialog iw networkmanager
+
+# systemctl enable NetworkManager
+
+=======================
+>> Criar Usuário (s) <<
+=======================
+
+# useradd -m -g users -G log,sys,wheel,adm,rfkill,storage,lp,power,audio,video,dbus -s /bin/bash
+k4k4rot0
+
+Em seguida, forneça a senha para este novo usuário executando:
+
+# passwd k4k4rot0
+
+Não se esqueça de definir também a senha para o usuário ROOT:
+
+# passwd
+
+===============================
+>> Instale o bash-completion <<
+===============================
+
+# pacman -S bash-completion
+
+============================
+>> Editar prioridade SUDO <<
+============================
+
+# nano /etc/sudoers
+
+Descomentar linha:
+
+# %wheel ALL=(ALL) ALL
+
+=====================================================
+>> Instalar e configurar o boot-loader (UEFI/GRUB) <<
+=====================================================
+
+# mkinitcpio -p linux-lts (para kernel-lts)
+
+# mkinitcpio -p linux
+
+# pacman -S grub efibootmgr
+
+# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --recheck
+
+# pacman -S os-prober ( Se você estiver inicializando em dual boot )
+
+# pacman -S intel-ucode ( Se você tiver uma CPU Intel, instale o pacote intel-ucode )
+
+# grub-mkconfig -o /boot/grub/grub.cfg
+
+
+(OBS:) Não foi possível criar uma entrada de inicialização com efibootmgr.
+
+
+# rm /sys/firmware/efi/efivars/dump-*
+
+========================================
+>> Desmontar as partições e reiniciar <<
+========================================
+
+# exit
+
+# umount -R /mnt
+
+# reboot
+
+Instalação do Arch Linux Concluida !! :)
+
+By: k4k4rot0
