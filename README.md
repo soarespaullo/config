@@ -19,7 +19,7 @@ Editor de Vídeo | [Kdenlive](https://kdenlive.org/en/)
 Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
 Editor de Texto | [Nano](https://www.nano-editor.org/)
 
-# Menu
+# Desktop
 
 ![screenshot](/imagens/screenshot-01.png)
 
