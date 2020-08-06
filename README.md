@@ -28,4 +28,7 @@ Desenvolvimento | [Atom](https://atom.io/)
 
 ![screenshot](/imagens/screenshot-02.png)
  
+ # Conky
+ 
+ ![screenshot](/imagens/screenshot-03.png)
  
