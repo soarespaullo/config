@@ -17,7 +17,7 @@ Print Screen    | [Flameshot](https://github.com/lupoDharkael/flameshot)
 Vídeo Player    | [VLC](https://www.videolan.org/vlc/index.pt-BR.html) e [MPV](https://mpv.io/)
 Editor de Vídeo | [Kdenlive](https://kdenlive.org/en/)
 Editor de Fotos | [GIMP](https://www.gimp.org/) e [Krita](https://krita.org/en/)
-Editor de Texto | [Nano](https://www.nano-editor.org/)
+Editor de Texto | [Nano](https://www.nano-editor.org/) e [Vim](https://www.vim.org/)
 Desenvolvimento | [Atom](https://atom.io/)
 
 # Desktop
