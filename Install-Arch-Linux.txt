@@ -326,6 +326,6 @@ Descomentar linha:
 
 # reboot
 
-Instalação do Arch Linux Concluida !! :)
+Instalação do Arch Linux Concluida ! :)
 
-By: k4k4rot0
+By: @soarespaullo
