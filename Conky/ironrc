@@ -115,5 +115,4 @@ ${offset 155}${upspeedgraph enp0s31f6 45,380 4B1B0C 4C92CD 100 -l}
 ${offset 155}${color2}${font Ubuntu:size=10:style=bold}Download: ${alignr}${offset -130}${font Ubuntu:size=9:style=bold}$color2${downspeed enp0s31f6} / ${totaldown enp0s31f6}
 ${offset 155}${downspeedgraph enp0s31f6 45,380 324D23 4C92CD 100 -l}
 
-# by: @k4k4rot0..
-
+# By: @soarespaullo
